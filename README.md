@@ -2,9 +2,9 @@
 
 This project demonstrates a basic NFT minting website.
 
-My art pieces are generated from the Multibrot by giving it random exponents. These are hosted and fetched from IPFS through Pinata.
+My art pieces are generated from the Multibrot set by giving it random exponents. These are hosted and fetched from IPFS through Pinata.
 
-To access the collection, make sure you have a MetaMask local network connected, with ChainId 31337. From there import an account from one of the private keys generated from `npx hardhat node`.
+To access the collection, make sure you have a MetaMask local network connected, with ChainId 31337. Next, import an account with one of the private keys generated from `npx hardhat node`.
 
 These are the important shell commands, and can be run in this order.
 ```shell
