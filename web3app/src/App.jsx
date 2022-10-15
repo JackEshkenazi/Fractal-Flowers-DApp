@@ -22,7 +22,6 @@ const contract = new ethers.Contract(contractAddress, FractalFlowers.abi, signer
 // console.log(contract)
 
 function App() {
-  const [count, setCount] = useState(0);
   const [totalMinted, setTotalMinted] = useState(0);
 
   const getCount = async () => {
@@ -41,11 +40,6 @@ function App() {
       <div className="App">
         <WalletBalance/>
         <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-        </div>
-        <div>
           <h1>FractalFlowers NFT collection</h1>
           {Array(totalMinted + 1).fill(0).map((_, i) => {
             return(
