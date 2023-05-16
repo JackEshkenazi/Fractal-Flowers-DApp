@@ -3,8 +3,6 @@ MANDELBROT_EXPONENT = 2
 
 def multibrot(c, exponent):
     z = 0 if exponent > 0 else c
-    # print(c)
-    # print(exponent)
     n = 0
     while abs(z) <= 2 and n < MAX_ITER:
         z = z**exponent + c

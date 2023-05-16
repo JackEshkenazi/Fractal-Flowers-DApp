@@ -44,12 +44,9 @@ for exponent in range(0, 100):
             m = multibrot(c, (exponent/5.0))
 
             # The color depends on the number of iterations
-            #color = 255 - int(255 * m/ MAX_ITER)
-            # print(m)
-            # print(len(color_palette))
             color = color_palette[m % len(color_palette)]
             # Plot the point
             draw.point([x, y], color)
 
-    # im.show()
+    # im.show() # Uncomment this if you want to see the results of the flower before they are saved
     im.save('./nft_images/flower_'+ str(exponent) +'.png', 'PNG')

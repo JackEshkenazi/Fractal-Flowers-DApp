@@ -7,28 +7,13 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  const ContractFactory = await hre.ethers.getContractFactory("FractalFlowers");
+  const contract = await ContractFactory.deploy();
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
-
-  // const Lock = await hre.ethers.getContractFactory("Lock");
-  // const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
-
-  // await lock.deployed();
-
-  // console.log(
-  //   `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  // );
-
-  const Nft = await hre.ethers.getContractFactory("FractalFlowers");
-  const nft = await Nft.deploy();
-
-  await nft.deployed();
+  await contract.deployed();
 
   console.log(
-    `FractalFlowers NFT deployed to ${nft.address}`
+    `FractalFlowers Contract deployed to ${contract.address}`
   );
 }
 

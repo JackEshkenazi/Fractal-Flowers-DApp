@@ -13,12 +13,11 @@ const NFTImage = ({token_id, getCount}) => {
 
     useEffect(() => {
         getMintedStatus();
-        console.log('we in here');
     }, [])
 
     const getMintedStatus = async () => {
         const result = await contract.isContentOwned(metaDataURI);
-        console.log(result);
+        console.log("Result of check that the contract is minted:", result);
         setIsMinted(result);
     }
 

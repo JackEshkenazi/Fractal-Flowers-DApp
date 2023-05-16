@@ -6,9 +6,7 @@ import './App.css'
 import FractalFlowers from '../artifacts/contracts/FractalFlowers.sol/FractalFlowers.json'
 import Install from '../components/Install'
 import WalletBalance from '../components/WalletBalance'
-// import NFTImage from '../components/NFTImage'
 
-console.log(FractalFlowers.abi);
 const contractAddress = "0x9A676e781A523b5d0C0e43731313A708CB607508";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -16,17 +14,15 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 // This is the end user
 const signer = provider.getSigner();
 
-console.log('here though');
 // This is the smart contract
 const contract = new ethers.Contract(contractAddress, FractalFlowers.abi, signer);
-// console.log(contract)
 
 function App() {
   const [totalMinted, setTotalMinted] = useState(0);
 
   const getCount = async () => {
     const count = await contract.count();
-    console.log(count);
+    console.log("COUNT:", count);
     setTotalMinted(parseInt(count));
   }
 
@@ -66,12 +62,11 @@ function NFTImage({ tokenId, getCount }) {
 
   useEffect(() => {
       getMintedStatus();
-      console.log('we in here');
   }, [])
 
   const getMintedStatus = async () => {
       const result = await contract.isContentOwned(metaDataURI);
-      console.log(result);
+      console.log("Result of check that the contract is minted:", result);
       setIsMinted(result);
   }
 
